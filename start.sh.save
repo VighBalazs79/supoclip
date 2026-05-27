@@ -1,4 +1,4 @@
-#!/bin/bash
+sed -i '' '/if \[ ! -f \.env \]/,/fi/d' start.shźxxx#!/bin/bash
 
 # Zyntro - Quick Start Script
 # This script helps you start Zyntro with a single command
@@ -17,6 +17,8 @@ echo "============================================"
 echo ""
 
 # Check if .env file exists
+if [ ! -f .env ]; then
+    echo -e "${RED}Error: .env file not found!${NC}"
     echo ""
     echo "Please create a .env file with your API keys:"
     echo "  1. Copy the template: cp .env.example .env"
@@ -30,6 +32,7 @@ echo ""
 fi
 
 # Check if required API keys are set
+source .env
 
 if [ -n "${LLM:-}" ]; then
     case "$LLM" in
