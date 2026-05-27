@@ -1,6 +1,6 @@
 # Configuration
 
-This guide explains the important environment variables used by SupoClip and how they affect behavior.
+This guide explains the important environment variables used by Zyntro and how they affect behavior.
 
 Most settings are sourced from `.env.example`, `docker-compose.yml`, and the backend configuration code in `backend/src/config.py`.
 
@@ -50,12 +50,12 @@ The backend can infer a default LLM from whichever API key is present, but setti
 
 ## Analytics Settings
 
-SupoClip can send pageviews and custom product events to DataFast from the `frontend` app.
+Zyntro can send pageviews and custom product events to DataFast from the `frontend` app.
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_DATAFAST_WEBSITE_ID` | unset | Public DataFast website ID used by the tracking script |
-| `NEXT_PUBLIC_DATAFAST_DOMAIN` | unset | Root domain tracked by DataFast, for example `supoclip.com` |
+| `NEXT_PUBLIC_DATAFAST_DOMAIN` | unset | Root domain tracked by DataFast, for example `Zyntro.com` |
 | `NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST` | `false` | Enables local tracking on `localhost` when explicitly set to `true` |
 
 ### DataFast behavior
@@ -110,9 +110,9 @@ Fonts and transitions are configured by mounted files rather than environment va
 | `REDIS_HOST` | `redis` in Docker, `localhost` in code | Redis hostname |
 | `REDIS_PORT` | `6379` | Redis port |
 | `DATABASE_URL` | injected by Docker | PostgreSQL connection string |
-| `POSTGRES_DB` | `supoclip` | PostgreSQL database name |
-| `POSTGRES_USER` | `supoclip` | PostgreSQL username |
-| `POSTGRES_PASSWORD` | `supoclip_password` | PostgreSQL password |
+| `POSTGRES_DB` | `Zyntro` | PostgreSQL database name |
+| `POSTGRES_USER` | `Zyntro` | PostgreSQL username |
+| `POSTGRES_PASSWORD` | `Zyntro_password` | PostgreSQL password |
 
 ## Self-Host and Monetization Settings
 
@@ -163,7 +163,7 @@ Required when `SELF_HOST=false` and you want subscription management:
 
 ## Apify YouTube Downloader
 
-SupoClip uses Apify's `epctex/youtube-video-downloader` actor as the primary YouTube download path. Metadata preflight and fallback downloads rely on the local `yt-dlp` stack over a direct connection.
+Zyntro uses Apify's `epctex/youtube-video-downloader` actor as the primary YouTube download path. Metadata preflight and fallback downloads rely on the local `yt-dlp` stack over a direct connection.
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -258,7 +258,7 @@ NEXT_PUBLIC_SCALE_PRICE_MONTHLY=50
 NEXT_PUBLIC_PRO_PLAN_TASK_LIMIT=50
 NEXT_PUBLIC_SCALE_PLAN_TASK_LIMIT=300
 RESEND_API_KEY=your_key
-RESEND_FROM_EMAIL="SupoClip <onboarding@your-domain.com>"
+RESEND_FROM_EMAIL="Zyntro <onboarding@your-domain.com>"
 ```
 
 ## Related Reading

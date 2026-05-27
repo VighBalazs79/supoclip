@@ -112,7 +112,7 @@ def auth_headers():
     ).hexdigest()
 
     return {
-        "x-supoclip-user-id": user_id,
-        "x-supoclip-ts": timestamp,
-        "x-supoclip-signature": signature,
+        "x-Zyntro-user-id": user_id,
+        "x-Zyntro-ts": timestamp,
+        "x-Zyntro-signature": signature,
     }

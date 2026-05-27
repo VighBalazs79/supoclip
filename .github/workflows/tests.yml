@@ -14,13 +14,13 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: supoclip
-          POSTGRES_USER: supoclip
-          POSTGRES_PASSWORD: supoclip_password
+          POSTGRES_DB: Zyntro
+          POSTGRES_USER: Zyntro
+          POSTGRES_PASSWORD: Zyntro_password
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U supoclip -d supoclip"
+          --health-cmd "pg_isready -U Zyntro -d Zyntro"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -34,12 +34,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
-      DATABASE_URL: postgresql+asyncpg://supoclip:supoclip_password@127.0.0.1:5432/supoclip
-      TEST_DATABASE_URL: postgresql+asyncpg://supoclip:supoclip_password@127.0.0.1:5432/supoclip
+      DATABASE_URL: postgresql+asyncpg://Zyntro:Zyntro_password@127.0.0.1:5432/Zyntro
+      TEST_DATABASE_URL: postgresql+asyncpg://Zyntro:Zyntro_password@127.0.0.1:5432/Zyntro
       REDIS_HOST: 127.0.0.1
       REDIS_PORT: 6379
       SELF_HOST: "true"
-      BACKEND_AUTH_SECRET: supoclip_test_secret
+      BACKEND_AUTH_SECRET: Zyntro_test_secret
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -55,8 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_SELF_HOST: "true"
-      BACKEND_AUTH_SECRET: supoclip_test_secret
-      BETTER_AUTH_SECRET: supoclip_better_auth_test_secret
+      BACKEND_AUTH_SECRET: Zyntro_test_secret
+      BETTER_AUTH_SECRET: Zyntro_better_auth_test_secret
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -78,13 +78,13 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: supoclip
-          POSTGRES_USER: supoclip
-          POSTGRES_PASSWORD: supoclip_password
+          POSTGRES_DB: Zyntro
+          POSTGRES_USER: Zyntro
+          POSTGRES_PASSWORD: Zyntro_password
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U supoclip -d supoclip"
+          --health-cmd "pg_isready -U Zyntro -d Zyntro"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -98,13 +98,13 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
-      DATABASE_URL: postgresql://supoclip:supoclip_password@127.0.0.1:5432/supoclip
-      TEST_DATABASE_URL: postgresql+asyncpg://supoclip:supoclip_password@127.0.0.1:5432/supoclip
+      DATABASE_URL: postgresql://Zyntro:Zyntro_password@127.0.0.1:5432/Zyntro
+      TEST_DATABASE_URL: postgresql+asyncpg://Zyntro:Zyntro_password@127.0.0.1:5432/Zyntro
       REDIS_HOST: 127.0.0.1
       REDIS_PORT: 6379
       NEXT_PUBLIC_SELF_HOST: "true"
-      BACKEND_AUTH_SECRET: supoclip_test_secret
-      BETTER_AUTH_SECRET: supoclip_better_auth_test_secret
+      BACKEND_AUTH_SECRET: Zyntro_test_secret
+      BETTER_AUTH_SECRET: Zyntro_better_auth_test_secret
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

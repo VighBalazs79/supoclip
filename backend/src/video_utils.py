@@ -1403,7 +1403,7 @@ def detect_speaker_reframe_plan(
                 "regions": regions,
             }
 
-        with tempfile.TemporaryDirectory(prefix="supoclip_motion_") as motion_dir:
+        with tempfile.TemporaryDirectory(prefix="Zyntro_motion_") as motion_dir:
             left_motion = Path(motion_dir) / "left.txt"
             right_motion = Path(motion_dir) / "right.txt"
             left = regions["left"]
@@ -2098,7 +2098,7 @@ def create_optimized_clip(
             logger.info(f"Successfully created clip (stream copy): {output_path}")
             return True
 
-        with tempfile.TemporaryDirectory(prefix="supoclip_render_") as temp_dir:
+        with tempfile.TemporaryDirectory(prefix="Zyntro_render_") as temp_dir:
             temp_root = Path(temp_dir)
             source_clip_path = temp_root / "source.mp4"
             framed_clip_path = temp_root / "framed.mp4"
@@ -2399,7 +2399,7 @@ def create_clips_with_transitions(
         f"Creating {len(segments)} standalone clips subtitles={add_subtitles} template '{caption_template}'"
     )
     logger.info(
-        "Inter-clip transitions are disabled for standalone SupoClip exports"
+        "Inter-clip transitions are disabled for standalone Zyntro exports"
     )
     return create_clips_from_segments(
         video_path,

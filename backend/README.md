@@ -41,8 +41,8 @@ uv sync --all-groups
 Run the backend suite:
 
 ```bash
-DATABASE_URL=postgresql+asyncpg://localhost:5432/supoclip \
-TEST_DATABASE_URL=postgresql+asyncpg://localhost:5432/supoclip \
+DATABASE_URL=postgresql+asyncpg://localhost:5432/Zyntro \
+TEST_DATABASE_URL=postgresql+asyncpg://localhost:5432/Zyntro \
 REDIS_HOST=127.0.0.1 \
 REDIS_PORT=6379 \
 .venv/bin/pytest
@@ -63,7 +63,7 @@ Set these env vars when using hosted billing:
 
 ```
 RESEND_API_KEY=your_resend_api_key
-RESEND_FROM_EMAIL="SupoClip <onboarding@your-domain.com>"
+RESEND_FROM_EMAIL="Zyntro <onboarding@your-domain.com>"
 ```
 
 Notes:

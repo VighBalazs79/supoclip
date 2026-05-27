@@ -16,7 +16,7 @@ services:
         - NEXT_PUBLIC_DATAFAST_WEBSITE_ID=${NEXT_PUBLIC_DATAFAST_WEBSITE_ID:-}
         - NEXT_PUBLIC_DATAFAST_DOMAIN=${NEXT_PUBLIC_DATAFAST_DOMAIN:-}
         - NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST=${NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST:-false}
-    container_name: supoclip-frontend
+    container_name: Zyntro-frontend
     ports:
       - "3107:3107"
     volumes:
@@ -31,10 +31,10 @@ services:
       - NEXT_PUBLIC_SELF_HOST=${SELF_HOST:-true}
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3107}
       - NEXT_PUBLIC_LANDING_ONLY_MODE=${NEXT_PUBLIC_LANDING_ONLY_MODE:-false}
-      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-supoclip_dev_backend_secret_change_me}
-      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-supoclip_dev_settings_secret_change_me}
-      - DATABASE_URL=postgresql://supoclip:supoclip_password@postgres:5432/supoclip
-      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET:-supoclip_dev_secret_change_in_production}
+      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-Zyntro_dev_backend_secret_change_me}
+      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-Zyntro_dev_settings_secret_change_me}
+      - DATABASE_URL=postgresql://Zyntro:Zyntro_password@postgres:5432/Zyntro
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET:-Zyntro_dev_secret_change_in_production}
       - BETTER_AUTH_URL=${BETTER_AUTH_URL:-http://localhost:3107}
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
@@ -69,7 +69,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: supoclip-backend
+    container_name: Zyntro-backend
     platform: linux/amd64
     command: [".venv/bin/uvicorn", "src.main_refactored:app", "--host", "0.0.0.0", "--port", "8000"]
     ports:
@@ -83,7 +83,7 @@ services:
     environment:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
-      - DATABASE_URL=postgresql+asyncpg://supoclip:supoclip_password@postgres:5432/supoclip
+      - DATABASE_URL=postgresql+asyncpg://Zyntro:Zyntro_password@postgres:5432/Zyntro
       - TEMP_DIR=/app/uploads
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -106,15 +106,15 @@ services:
       - FAST_MODE_MAX_CLIPS=${FAST_MODE_MAX_CLIPS:-4}
       - FAST_MODE_TRANSCRIPT_MODEL=${FAST_MODE_TRANSCRIPT_MODEL:-nano}
       - SELF_HOST=${SELF_HOST:-true}
-      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-supoclip_dev_backend_secret_change_me}
-      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-supoclip_dev_settings_secret_change_me}
+      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-Zyntro_dev_backend_secret_change_me}
+      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-Zyntro_dev_settings_secret_change_me}
       - AUTH_SIGNATURE_TTL_SECONDS=${AUTH_SIGNATURE_TTL_SECONDS:-300}
-      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3107,http://sp.localhost:3107,http://supoclip.localhost:3107}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3107,http://sp.localhost:3107,http://Zyntro.localhost:3107}
       - FREE_PLAN_TASK_LIMIT=${FREE_PLAN_TASK_LIMIT:-10}
       - PRO_PLAN_TASK_LIMIT=${PRO_PLAN_TASK_LIMIT:-50}
       - SCALE_PLAN_TASK_LIMIT=${SCALE_PLAN_TASK_LIMIT:-300}
       - RESEND_API_KEY=${RESEND_API_KEY}
-      - "RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-SupoClip <onboarding@resend.dev>}"
+      - "RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-Zyntro <onboarding@resend.dev>}"
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3107}
       - DISCORD_FEEDBACK_WEBHOOK_URL=${DISCORD_FEEDBACK_WEBHOOK_URL}
       - DISCORD_SALES_WEBHOOK_URL=${DISCORD_SALES_WEBHOOK_URL}
@@ -138,7 +138,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: supoclip-worker
+    container_name: Zyntro-worker
     platform: linux/amd64
     command: [".venv/bin/arq", "src.workers.tasks.WorkerSettings"]
     volumes:
@@ -150,7 +150,7 @@ services:
     environment:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
-      - DATABASE_URL=postgresql+asyncpg://supoclip:supoclip_password@postgres:5432/supoclip
+      - DATABASE_URL=postgresql+asyncpg://Zyntro:Zyntro_password@postgres:5432/Zyntro
       - TEMP_DIR=/app/uploads
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -173,15 +173,15 @@ services:
       - FAST_MODE_MAX_CLIPS=${FAST_MODE_MAX_CLIPS:-4}
       - FAST_MODE_TRANSCRIPT_MODEL=${FAST_MODE_TRANSCRIPT_MODEL:-nano}
       - SELF_HOST=${SELF_HOST:-true}
-      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-supoclip_dev_backend_secret_change_me}
-      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-supoclip_dev_settings_secret_change_me}
+      - BACKEND_AUTH_SECRET=${BACKEND_AUTH_SECRET:-Zyntro_dev_backend_secret_change_me}
+      - APP_SETTINGS_ENCRYPTION_KEY=${APP_SETTINGS_ENCRYPTION_KEY:-Zyntro_dev_settings_secret_change_me}
       - AUTH_SIGNATURE_TTL_SECONDS=${AUTH_SIGNATURE_TTL_SECONDS:-300}
-      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3107,http://sp.localhost:3107,http://supoclip.localhost:3107}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3107,http://sp.localhost:3107,http://Zyntro.localhost:3107}
       - FREE_PLAN_TASK_LIMIT=${FREE_PLAN_TASK_LIMIT:-10}
       - PRO_PLAN_TASK_LIMIT=${PRO_PLAN_TASK_LIMIT:-50}
       - SCALE_PLAN_TASK_LIMIT=${SCALE_PLAN_TASK_LIMIT:-300}
       - RESEND_API_KEY=${RESEND_API_KEY}
-      - "RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-SupoClip <onboarding@resend.dev>}"
+      - "RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL:-Zyntro <onboarding@resend.dev>}"
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3107}
     restart: unless-stopped
     extra_hosts:
@@ -197,7 +197,7 @@ services:
   # Redis for caching and job queues (useful for video processing)
   redis:
     image: redis:7-alpine
-    container_name: supoclip-redis
+    container_name: Zyntro-redis
     ports:
       - "6379:6379"
     environment:
@@ -224,17 +224,17 @@ services:
   # PostgreSQL database for storing video metadata, user data, etc.
   postgres:
     image: postgres:15-alpine
-    container_name: supoclip-postgres
+    container_name: Zyntro-postgres
     environment:
-      POSTGRES_DB: supoclip
-      POSTGRES_USER: supoclip
-      POSTGRES_PASSWORD: supoclip_password
+      POSTGRES_DB: Zyntro
+      POSTGRES_USER: Zyntro
+      POSTGRES_PASSWORD: Zyntro_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U supoclip -d supoclip"]
+      test: ["CMD-SHELL", "pg_isready -U Zyntro -d Zyntro"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -251,4 +251,4 @@ volumes:
 
 networks:
   default:
-    name: supoclip-network
+    name: Zyntro-network

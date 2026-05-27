@@ -4345,7 +4345,7 @@ wheels = [
 ]
 
 [[package]]
-name = "supoclip-backend"
+name = "Zyntro-backend"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
