@@ -9,3 +9,5 @@ RUN uv sync --no-cache
 
 EXPOSE 8000
 CMD uv run uvicorn src.main_refactored:app --host 0.0.0.0 --port ${PORT:-8000}
+
+RUN pip install psycopg2-binary
