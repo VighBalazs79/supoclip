@@ -1,3 +1,3 @@
 [deploy]
-startCommand = "uv run uvicorn src.main_refactored:app --host 0.0.0.0 --port $PORT"
+startCommand = "/bin/sh -c 'uv run uvicorn src.main_refactored:app --host 0.0.0.0 --port $PORT'"
 restartPolicyType = "on_failure"
