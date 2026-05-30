@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ["python311", "uv", "ffmpeg"]
+nixPkgs = ["python311", "ffmpeg"]
 
 [phases.install]
-cmds = ["cd backend && uv sync --no-cache"]
+cmds = [
+  "pip install uv --break-system-packages",
+  "cd backend && uv sync --no-cache"
+]
 
 [start]
 cmd = "cd backend && uv run uvicorn src.main_refactored:app --host 0.0.0.0 --port $PORT"
